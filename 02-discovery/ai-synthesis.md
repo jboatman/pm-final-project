@@ -1,9 +1,9 @@
 # AI Synthesis, Product Health & Insights Summary (Module 2)
 
 ## Responses
-- **Moment of misery / red flag #1 (e.g., “user gave up after 3 tries”):** Users leave the app to decide what to watch. We assumed workarounds like Google, Reddit, friends, or a competitor.
-- **Moment of misery / red flag #2:** The core problem is choice overload and low trust in recommendations, not that the catalog is bad.
-- **Moment of misery / red flag #3:** Quality-seeking users churn to rivals that curate, and a small set of trusted picks would win them back.
+- **Moment of misery / red flag #1 (e.g., “user gave up after 3 tries”):** Users give up instead of choosing. Priya scrolls 20 minutes, closes the app and goes back to a DVD; Aisha only rewatches 4 comfort shows (UXR-01, UXR-03, UXR-12).
+- **Moment of misery / red flag #2:** Recommendations and search can't be trusted. "Because you watched" served Marcus three action sequels, and "slow quiet French drama" returned Fast & Furious (UXR-02, UXR-07, BUG-1091, BUG-1080).
+- **Moment of misery / red flag #3:** Saved and started titles are lost between devices. The watchlist doesn't sync (BUG-1058, Critical, 340+ tickets), and resume restarts at 0:00 (BUG-1061, UXR-06, UXR-11).
 - **Product Health & Insights Summary (Claude's output):** # StreamLine: Product Health & Insights Summary
 
 ## Executive Summary
