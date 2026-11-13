@@ -1,11 +1,7 @@
-# Strategic Discovery Map
-
-> **Module 1 · Lab 1.** Repo file `01-product-thinking/strategic-map.md` — part of your submission.
-> Do the lab in the **Module 1 · Exercise 1 Guide** (linked from the Module 1 deck), then click **⬇ Download .md** — it saves as this exact file. Commit it here.
-> It's the discovery groundwork behind your `problem-hook.md`.
+# Strategic Discovery Map (Module 1)
 
 ## Responses
-
-- **Feature with no strategic answer (why is this a 12-week priority?):** _(not filled in)_
-- **Feature that looks "correct" but has zero strategic weight:** _(not filled in)_
-- **V3 vs your Step 1 baseline — what changed, and was it your PM knowledge that forced usefulness?:** _(not filled in)_
+- **Write one feature from the map that, if an engineer asked “why is this a priority for our 12-week roadmap?”, you honestly could not give a strategic answer for.:** Voice assistants. Nothing in our discovery shows users asking for it, it doesn't serve a core job to be done, and it carries high build effort with no clear tie to retention or revenue.
+- **Write one feature that looks “correct” for the app but has zero strategic weight, you have no idea if it helps the company make money or whether a single user actually asked for it.:** Streaks and badges. Gamification is a common pattern, so it feels "correct," but we have no user evidence asking for it and no data showing it would move retention or monetization for this product.
+- **Compare V3 to your Step 1 baseline. What changed, and is the output objectively better, did the AI get smarter, or did your added PM knowledge (JTBD, effort/impact, retention) force it to be useful?:** Output is far more useful in V3 because I prompted with core PM requirements. The Step 1 baseline was a generic feature wishlist; V3 tied features to specific jobs to be done, ranked them by effort vs. impact, and flagged which ones would drive retention. The AI didn't get smarter. The added PM frameworks in my prompt forced it to produce prioritized, strategic output instead of a list.
+- **Key takeaway: how does this prove the PM’s role is to think while the AI’s role is to execute?:** AI is only giving what's asked for. PMs still need to understand core concepts and what info is needed to be successful.
