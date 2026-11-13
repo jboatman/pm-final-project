@@ -1,0 +1,158 @@
+<title>Spotlight Future-State Journey</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  /* Layout: header brief, then a 4-stop horizontal timeline (stacks on phones), then advantages + launch dependency. */
+  :root {
+    --bg: #f5f6fa;
+    --surface: #ffffff;
+    --ink: #161a2e;
+    --muted: #5b6078;
+    --line: #dcdfeb;
+    --accent: #3b3fc4;
+    --spot: #c98a12;
+    --spot-soft: #fbf1dc;
+    --warn: #b4442c;
+    --warn-soft: #fbe9e4;
+    --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1122; --surface: #181b31; --ink: #eceefa; --muted: #a2a7c4; --line: #2c3050;
+      --accent: #9da2ff; --spot: #f2b544; --spot-soft: #2c2616; --warn: #f08a72; --warn-soft: #2e1c1a;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1122; --surface: #181b31; --ink: #eceefa; --muted: #a2a7c4; --line: #2c3050;
+    --accent: #9da2ff; --spot: #f2b544; --spot-soft: #2c2616; --warn: #f08a72; --warn-soft: #2e1c1a;
+    color-scheme: dark;
+  }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.55; }
+  .wrap {
+    max-width: 1180px; margin: 0 auto;
+    padding-block: 40px 56px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: grid; gap: 36px;
+  }
+  .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--spot); }
+  h1 { font-family: var(--display); font-weight: 700; font-size: clamp(30px, 5vw, 46px); line-height: 1.05; margin: 8px 0 12px; text-wrap: balance; }
+  h2 { font-family: var(--display); font-weight: 600; font-size: 22px; margin: 0 0 14px; text-wrap: balance; }
+  .brief { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px 28px; max-width: 980px; }
+  .brief div { min-width: 0; }
+  .brief dt { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .brief dd { margin: 4px 0 0; }
+
+  .timeline { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 6%; right: 6%; top: 19px; height: 2px; background: linear-gradient(90deg, var(--line), var(--spot)); }
+  .stage { position: relative; display: grid; gap: 14px; align-content: start; min-width: 0; }
+  .dot { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--surface); border: 2px solid var(--spot); font-family: var(--mono); font-weight: 500; color: var(--spot); position: relative; z-index: 1; }
+  .stage:last-child .dot { background: var(--spot); color: var(--surface); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: grid; gap: 14px; }
+  .card h3 { font-family: var(--display); font-weight: 600; font-size: 19px; margin: 0; }
+  .card .tag { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .row { display: grid; gap: 3px; }
+  .row b { font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .row p { margin: 0; }
+  .arrow { color: var(--spot); font-weight: 600; }
+  .mood { display: inline-block; justify-self: start; font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: var(--spot-soft); color: var(--ink); }
+  .ev { display: flex; flex-wrap: wrap; gap: 6px; }
+  .ev span { font-family: var(--mono); font-size: 11px; padding: 2px 7px; border: 1px solid var(--line); border-radius: 4px; color: var(--muted); }
+
+  .adv { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .adv li { border-top: 2px solid var(--accent); padding-top: 12px; min-width: 0; }
+  .adv strong { display: block; font-family: var(--display); font-size: 17px; margin-bottom: 4px; }
+  .adv p { margin: 0; color: var(--muted); }
+
+  .dep { background: var(--warn-soft); border-left: 3px solid var(--warn); border-radius: 6px; padding: 14px 18px; max-width: 900px; }
+  .dep b { color: var(--warn); }
+  footer { font-size: 13px; color: var(--muted); }
+
+  @media (max-width: 900px) {
+    .timeline { grid-template-columns: 1fr; }
+    .timeline::before { left: 19px; right: auto; top: 20px; bottom: 20px; width: 2px; height: auto; background: linear-gradient(180deg, var(--line), var(--spot)); }
+    .stage { grid-template-columns: 40px minmax(0, 1fr); column-gap: 14px; }
+    .adv { grid-template-columns: 1fr; }
+  }
+</style>
+
+<main class="wrap">
+  <header>
+    <div class="eyebrow">StreamLine · Spotlight initiative · Future-state journey</div>
+    <h1>From the 15,000-title scroll to a pick you trust</h1>
+    <dl class="brief">
+      <div><dt>Persona</dt><dd>The Discerning Curator-Seeker, a film-literate viewer who judges the platform by the quality of its picks.</dd></div>
+      <div><dt>Goal</dt><dd>Find a hidden gem that fits their taste, from a source they trust, without wading through sequels.</dd></div>
+      <div><dt>Strategy</dt><dd>Restore brand authority with human-led curation over mass-market scale.</dd></div>
+    </dl>
+  </header>
+
+  <section aria-labelledby="journey">
+    <h2 id="journey">The four stages</h2>
+    <ol class="timeline">
+      <li class="stage">
+        <div class="dot">1</div>
+        <article class="card">
+          <div><h3>Discover</h3><div class="tag">"Spotlight Tonight"</div></div>
+          <span class="mood">Relieved</span>
+          <div class="row"><b>User action</b><p>Opens app, sees 3 curator picks, not endless rows <span class="arrow">→</span> decides in seconds.</p></div>
+          <div class="row"><b>Internal state</b><p>Relieved <span class="arrow">→</span> trusts someone already filtered the warehouse for them.</p></div>
+          <div class="row"><b>Pain point addressed</b><p>Replaces the "Because you watched" sequel loop <span class="arrow">→</span> picks span genres.</p></div>
+          <div class="ev"><span>UXR-02</span><span>BUG-1091</span></div>
+        </article>
+      </li>
+      <li class="stage">
+        <div class="dot">2</div>
+        <article class="card">
+          <div><h3>Trust</h3><div class="tag">"Why this, why now"</div></div>
+          <span class="mood">Intrigued</span>
+          <div class="row"><b>User action</b><p>Reads the curator note on a hidden gem <span class="arrow">→</span> understands why it fits them.</p></div>
+          <div class="row"><b>Internal state</b><p>Intrigued <span class="arrow">→</span> feels seen as a person, not a genre.</p></div>
+          <div class="row"><b>Pain point addressed</b><p>Human reasoning replaces the opaque algorithm <span class="arrow">→</span> no outside critics or friends needed.</p></div>
+          <div class="ev"><span>UXR-10</span><span>UXR-07</span></div>
+        </article>
+      </li>
+      <li class="stage">
+        <div class="dot">3</div>
+        <article class="card">
+          <div><h3>Commit</h3><div class="tag">"Watch or save"</div></div>
+          <span class="mood">Confident</span>
+          <div class="row"><b>User action</b><p>Taps Watch or saves to My List <span class="arrow">→</span> title follows them to the TV.</p></div>
+          <div class="row"><b>Internal state</b><p>Confident <span class="arrow">→</span> the effort of choosing isn't wasted.</p></div>
+          <div class="row"><b>Pain point addressed</b><p>Ends exact-title searching and watchlists that vanish between devices.</p></div>
+          <div class="ev"><span>UXR-06</span><span>BUG-1058</span><span>BUG-1080</span></div>
+        </article>
+      </li>
+      <li class="stage">
+        <div class="dot">4</div>
+        <article class="card">
+          <div><h3>Return</h3><div class="tag">"Weekly Spotlight"</div></div>
+          <span class="mood">Loyal</span>
+          <div class="row"><b>User action</b><p>Rates the pick, gets a refined weekly Spotlight <span class="arrow">→</span> taste profile sharpens.</p></div>
+          <div class="row"><b>Internal state</b><p>Loyal <span class="arrow">→</span> StreamLine becomes their trusted curator again.</p></div>
+          <div class="row"><b>Pain point addressed</b><p>Removes the reason to churn to a competitor's hand-picked email.</p></div>
+          <div class="ev"><span>UXR-04</span></div>
+        </article>
+      </li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="advantages">
+    <h2 id="advantages">Advantages over the manual workaround</h2>
+    <ul class="adv">
+      <li><strong>No app-switching</strong><p>Curation, reasoning, saving and playback happen in one place, not across texts, review sites and search.</p></li>
+      <li><strong>Personal, not generic</strong><p>Spotlight learns from each rating. A competitor's newsletter sends everyone the same two films.</p></li>
+      <li><strong>Full catalog depth</strong><p>Curators surface hidden gems from 15,000 titles, turning the "warehouse" into an advantage.</p></li>
+    </ul>
+  </section>
+
+  <aside class="dep">
+    <b>Launch dependency:</b> stage 3 only works once watchlist sync (BUG-1058, Critical) and cross-device resume (BUG-1061, High) are fixed. Otherwise Spotlight leads users straight back to "lost it on the TV."
+  </aside>
+
+  <footer>Evidence codes reference the StreamLine sample research set (UXR = interview, BUG = bug report).</footer>
+</main>
