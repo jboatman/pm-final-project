@@ -25,4 +25,6 @@ Ideas worth revisiting in later modules. Each one is unvalidated until it has ev
 - **Gimmick risk:** if the context link feels forced, it weakens trust in the editor's note instead of strengthening it.
 - **Priority:** this is an enhancement to Spotlight's matching, not part of the core bet. Keep it out of the MVP unless testing shows strong lift.
 
+**Fit with the current strategy:** this would power the **Mood lens** and add a context input to Spotlight's matching step (see Figure 3 in the briefing).
+
 **Possible experiment (M5):** A/B test Spotlight picks with and without context weighting; measure play-through rate and "nothing watched" sessions.

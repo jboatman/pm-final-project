@@ -19,3 +19,35 @@
 - **Core frustration, where the process feels most "broken":** Right after watching one action film, "Because you watched" offers three more sequels from the same franchise, and a search for "slow quiet French drama" returns a Fast & Furious film. In that moment the user realizes StreamLine doesn't understand their taste and that they'll have to look outside the app to find anything good.
 - **The evidence, a quote or behavior from the research:** Marcus (UXR-02, 41, film buff): *"The 'Because you watched' row is a joke, it recommended three more action sequels because I watched one. I'm not a genre, I'm a person. I miss when a human curator would surface a hidden gem."* BUG-1091 (Sev: High) confirms the row recommends near-duplicate titles from the same franchise. Tom (UXR-04, lapsed subscriber) cancelled and now watches both films a competitor emails him each week.
 - **Journey map, a shareable link or the map file you committed:** [`02-discovery/journey-map.html`](journey-map.html) · [Shareable link](https://claude.ai/artifact/SLDY1AmoRdC8F9bKyiLXNy)
+
+## Competitive landscape: the curation leaders
+
+_Sources: my competitive research notes (Lifehacker, A Good Movie to Watch, Consumer Reports), summarized._
+
+| Service | How it curates | What it tells us |
+|---|---|---|
+| **Criterion Channel** | Thematic programming, director spotlights, double features, commentary, 24/7 livestream | Human programming works, but it depends on a prestige catalog we don't have. |
+| **MUBI** | Hand-picked independent, world and festival films in a curated rotation, plus editorial writing | A small, rotating set is the opposite of the 15,000-title scroll. Editorial writing is part of the product. |
+| **Kanopy** | Large indie, international and classic catalog with curated tags and collections, via libraries | Collections and tags help viewers browse a big catalog, but nothing is personalized. |
+
+### The gap Spotlight fills
+
+| | Same for everyone | Personalized |
+|---|---|---|
+| **Human / editorial** | Criterion, MUBI, Kanopy | **Spotlight** |
+| **Algorithmic** | "Top 10" rows | Big-platform recommendations (our sequel loop) |
+
+The leaders curate for self-selected cinephiles, and every subscriber sees the same programming. No one offers editorial curation that's personalized and built for a mainstream audience. Spotlight's position: **Criterion-style curation for viewers who aren't cinephiles, matched to their taste and labeled with a source they trust.**
+
+### Patterns we borrow
+- **Double features → a fix for the sequel loop:** editor-paired follow-ups replace "Because you watched" (UXR-02, BUG-1091).
+- **Themes → mood browsing:** weekly themes like "Quiet Sundays" answer Beth's request (UXR-09).
+- **Director and guest spotlights → borrowed credibility:** named critics or creators curate a Spotlight week.
+- **Small rotations → fewer choices:** answers the focus group's "just tell me what's good tonight" (UXR-12).
+- **Editorial writing → the "why this, why now" note.**
+
+### Where we can't compete
+The leaders' catalogs are part of their curation. StreamLine's catalog is described as "mid-tier," so Spotlight should not try to out-Criterion Criterion. Editors pick the best of each kind, and a pre-launch audit checks that the catalog has enough standout titles.
+
+### Emerging persona (hypothesis): the Critic-Loyalist
+A viewer who skips every in-app recommendation and trusts one named source (for example, a four-star RogerEbert.com review). They won't trust a new "StreamLine Editors" label, but they'd act on their critic's rating if it appeared on the pick. This comes from one viewer's experience, not the sample research; it echoes Sam (UXR-10), who trusts friends over the algorithm. Validate before treating it as a segment.

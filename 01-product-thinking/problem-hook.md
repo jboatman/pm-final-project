@@ -32,7 +32,7 @@ _One urgent sentence fusing the business risk and the user pain, your pitch for 
 
 _Who it's for, the new value, and why it's urgent to launch now._
 
-> For **discerning viewers who value quality over volume** (and the overwhelmed evening viewers who share the same pain), we will **replace the 15,000-title scroll with Spotlight: three standout picks a night from an editor-curated pool, matched to each viewer's taste and explained ("why this, why now"), in the app for subscribers and by weekly email for lapsed ones**, because **competitors are already winning with hand-picked curation, quality-seeking subscribers like Tom are leaving for it, and every month we wait the "warehouse" perception gets harder to reverse.**
+> For **discerning viewers who value quality over volume** (and the overwhelmed evening viewers who share the same pain), we will **replace the 15,000-title scroll with Spotlight: three standout picks a night, each labeled with the trusted source that vouches for it (a top critic, our editors, or viewers like them) and explained ("why this, why now"). A one-tap setup chooses each viewer's lens, so film buffs get critic-backed picks and casual viewers get easy crowd-pleasers. Delivered in the app for subscribers and by weekly email for lapsed ones**, because **competitors are already winning with hand-picked curation, quality-seeking subscribers like Tom are leaving for it, and every month we wait the "warehouse" perception gets harder to reverse.**
 
 ## 6. Cold-read self-review
 
@@ -49,7 +49,12 @@ _Read your hook back as a skeptical stakeholder. If you don't feel the urgency, 
 | Risk a skeptic will raise | Our answer |
 |---|---|
 | "Why not just fix the bugs?" | Bugs lose viewers *after* they choose; curation loses them *before* they choose (Priya, Aisha and Marcus never press play). Sync and resume fixes (BUG-1058, BUG-1061) become **Phase 0** of Spotlight, not a competing priority. |
-| Human curation can't be personalized at scale | **Hybrid model:** editors choose and annotate a pool of 100–200 standout titles a month; the algorithm only matches that pool to each viewer. Trust comes from the editors, personalization from the matching. |
+| Human curation can't be personalized at scale | **Hybrid model:** licensed critic ratings, editors and viewer favorites build a pool of 100–200 standout titles a month; the algorithm only matches that pool to each viewer's lens and taste. Trust comes from named sources, personalization from the matching. |
+| "Critics have already reviewed everything. Why hire editors?" | Critics are one of the sources, shown as a labeled lens. Editors cover what critics don't: back-catalog gems that were never widely reviewed, and the "why this, why now" note that ties a title to this viewer and this catalog. The leaders in curation (Criterion, MUBI, Kanopy) all use human programming. |
+| Curators skew artsy, and not everyone wants art films | Editors pick **the best of each kind**, not the most artistic: a great heist film or rom-com counts. Viewers who want easy picks get the "Easy tonight" lens by default. |
+| Some viewers only trust one specific critic | The **Critic-backed lens** shows that critic's rating and a pull quote right on the pick, and can filter to 3½ stars or higher. StreamLine becomes the fastest way to act on a source they already trust. *(Hypothesis: comes from one viewer's experience, not the sample research.)* |
+| Several lenses could recreate choice overload | The lens is chosen once in a one- or two-tap setup ("How do you usually pick a film?" plus three favorites), then adjusted from viewing behavior. Existing subscribers get a one-time "Set up your Spotlight" card. |
+| Critic ratings cost money and may not cover our catalog | Licensing is a real cost and dependency. Before committing, count how many of our 15,000 titles have strong critic reviews; if coverage is thin, the Critic-backed lens leans on editors. |
 | The catalog may not have enough gems | Before launch, an editor audits the catalog for 50+ Spotlight-worthy titles, including restored older titles. If the audit fails, the problem is content, not discovery. |
 | Lapsed viewers never open the app | Two goals: **retain** at-risk subscribers in the app, and **win back** lapsed ones with a weekly Spotlight email (the channel that already won Tom). |
 | The discerning segment may be small | The Curator-Seeker is the *design* persona; the same "fewer, explained picks" also serves the larger Overwhelmed Evening Viewer segment (Priya, Aisha, Beth, focus group). |
