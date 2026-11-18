@@ -50,4 +50,4 @@ _Read your hook back as a skeptical stakeholder. If you don't feel the urgency, 
 
 ## Link to full artifact
 
-_[link to your Problem Hook Builder export]_
+Completed directly in this repo; see sections 1–6 above.
