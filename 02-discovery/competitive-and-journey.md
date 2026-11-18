@@ -51,3 +51,31 @@ The leaders' catalogs are part of their curation. StreamLine's catalog is descri
 
 ### Emerging persona (hypothesis): the Critic-Loyalist
 A viewer who skips every in-app recommendation and trusts one named source (for example, a four-star RogerEbert.com review). They won't trust a new "StreamLine Editors" label, but they'd act on their critic's rating if it appeared on the pick. This comes from one viewer's experience, not the sample research; it echoes Sam (UXR-10), who trusts friends over the algorithm. Validate before treating it as a segment.
+
+## Trusted sources: who viewers trust, and how they enter the algorithm
+
+_From a team discussion, based on general industry knowledge. Not yet checked against the research or verified with sources._
+
+### What makes a source trusted
+People trust a curator when it has a **name** (someone is accountable), **consistency** (you learn whether its taste matches yours), **reasons** (it says *why*), **selectivity** (a short list shows someone filtered) and **independence** (it isn't just promoting what it's paid to promote). StreamLine's "Because you watched" row has none of these, which is why viewers in the research trust friends (Sam, UXR-10), a competitor's newsletter (Tom, UXR-04) or a human curator (Marcus, UXR-02) over it.
+
+| Source | Why viewers trust it | How it enters Spotlight | Catch |
+|---|---|---|---|
+| **Named critics** (e.g., RogerEbert.com) | A consistent voice, a simple star scale, reasons in every review | Filter the pool (3½★+), label the pick, Critic-backed lens | Licensing; older and obscure titles often lack reviews |
+| **Critic aggregators** (Rotten Tomatoes, Metacritic) | Many critics combined into one quick score | Filter the pool | Licensing; says nothing about personal fit; favors widely reviewed films |
+| **Festivals and awards** (Cannes, Sundance, TIFF, Oscars) | Expert juries and prestige | Filter the pool, label ("Sundance selection") | Public facts, so cheap to use, but skews toward art-house films |
+| **Studio or label brands** (e.g., A24, Criterion) | The brand is the taste signal | Label, and a "follow" option in setup | Covers only the titles we license from them |
+| **Community ratings** (e.g., Letterboxd) | Ratings and lists from viewers who care about film; you can follow people whose taste matches yours | Matching input; inspiration for following other viewers | Data isn't freely available; would need a partnership |
+| **StreamLine editors** | Writes the "why this, why now" note; covers back-catalog gems critics skipped | Filter the pool, tag titles, label the pick | Cost; must earn trust from scratch; risk of skewing artsy |
+| **Our own viewer signals** | "Viewers with your taste finished this" | Matching input and the "Viewers love this" label | Takes time to build; needs passive signals (finished, saved, skipped), not star ratings |
+
+### Five ways trusted sources feed the algorithm
+1. **Filter:** only titles a trusted source endorsed can enter the Spotlight pool (critic rating, festival selection, editor pick, viewer favorite).
+2. **Tag:** editors tag titles by feel ("slow-burn," "cozy," "twisty"), and matching uses those tags. Netflix famously paid people to tag its catalog by hand, and those tags powered its micro-genres. This is how human judgment shapes matching without the viewer seeing it.
+3. **Label:** the pick shows who vouches for it ("★★★★ RogerEbert.com," "Editors' pick"). This is what turns the algorithm's pick into a trusted one.
+4. **Follow:** in setup, the viewer chooses the sources they trust (a critic, a brand, editors), like following people on Letterboxd. This extends the lens.
+5. **Learn:** our own signals (finished, saved, skipped) feed back into matching, and over time "viewers like you" becomes a trusted source of its own.
+
+**Precedent:** Spotify pairs human-edited playlists with algorithmic personalization. Editors set the playlists and the algorithm adapts them to each listener, which is the model Spotlight follows.
+
+**Open questions:** which sources are worth licensing, and does a source label actually raise play-through? Test the labels in interviews (Module 3) and run an A/B test with labels on and off (Module 5).
