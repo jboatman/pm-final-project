@@ -9,10 +9,10 @@
 - **Role, who are you solving for?:** The Discerning Curator-Seeker: a film-literate viewer in their 40s–50s who sees watching as a deliberate choice, not background noise, and judges the platform by the quality of its picks.
 - **Goal, what is this user ultimately trying to achieve?:** To find a hidden gem that fits their particular taste, recommended by a source they trust, without digging through a sea of sequels.
 - **Friction, the main barrier (moment of misery) stopping them:** "Because you watched" served Marcus three more action sequels after he watched one ("I'm not a genre, I'm a person"). Searching for "slow quiet French drama" returned a Fast & Furious film. With no trusted curation, Tom cancelled and now watches both films a competitor emails him each week.
-- **External tools the user is forced to use:** A competitor's curated service (e.g., a weekly "two hand-picked films" email), personal recommendations from friends via text or word of mouth, and outside critic or review sources used to find titles they then look up by exact name in StreamLine.
+- **External tools the user is forced to use:** A competitor's curated service (e.g., a weekly "two hand-picked films" email) and personal recommendations from friends, which they then look up by exact title in StreamLine search.
 - **The process, the 3–5 manual steps they take:**
   1. Opens StreamLine, sees "Because you watched" full of the same franchise, and gives up on the home screen.
-  2. Leaves the app to get a recommendation they trust, from a friend, a critic, or a competitor's curated email.
+  2. Leaves the app to get a recommendation they trust, from a friend or a competitor's curated email.
   3. Comes back and searches the exact title, because descriptive searches like "slow quiet French drama" don't work.
   4. Adds it to My List on their phone, then can't find it on the TV because the watchlist doesn't sync, so the effort is lost.
   5. After repeating this enough times, cancels and switches to the competitor that does the curation for them.
