@@ -70,6 +70,8 @@
 
   .dep { background: var(--warn-soft); border-left: 3px solid var(--warn); border-radius: 6px; padding: 14px 18px; max-width: 900px; }
   .dep b { color: var(--warn); }
+  .dep.win { background: var(--spot-soft); border-left-color: var(--spot); }
+  .dep.win b { color: var(--ink); }
   footer { font-size: 13px; color: var(--muted); }
 
   @media (max-width: 900px) {
@@ -87,7 +89,7 @@
     <dl class="brief">
       <div><dt>Persona</dt><dd>The Discerning Curator-Seeker, a film-literate viewer who judges the platform by the quality of its picks.</dd></div>
       <div><dt>Goal</dt><dd>Find a hidden gem that fits their taste, from a source they trust, without wading through sequels.</dd></div>
-      <div><dt>Strategy</dt><dd>Restore brand authority with human-led curation over mass-market scale.</dd></div>
+      <div><dt>Strategy</dt><dd>Restore brand authority with curation: editors choose the pool, the algorithm matches it to each viewer.</dd></div>
     </dl>
   </header>
 
@@ -99,7 +101,7 @@
         <article class="card">
           <div><h3>Discover</h3><div class="tag">"Spotlight Tonight"</div></div>
           <span class="mood">Relieved</span>
-          <div class="row"><b>User action</b><p>Opens app, sees 3 curator picks, not endless rows <span class="arrow">→</span> decides in seconds.</p></div>
+          <div class="row"><b>User action</b><p>Opens app, sees 3 editor-picked titles matched to their taste <span class="arrow">→</span> decides in seconds.</p></div>
           <div class="row"><b>Internal state</b><p>Relieved <span class="arrow">→</span> trusts someone already filtered the warehouse for them.</p></div>
           <div class="row"><b>Pain point addressed</b><p>Replaces the "Because you watched" sequel loop <span class="arrow">→</span> picks span genres.</p></div>
           <div class="ev"><span>UXR-02</span><span>BUG-1091</span></div>
@@ -132,7 +134,7 @@
         <article class="card">
           <div><h3>Return</h3><div class="tag">"Weekly Spotlight"</div></div>
           <span class="mood">Loyal</span>
-          <div class="row"><b>User action</b><p>Rates the pick, gets a refined weekly Spotlight <span class="arrow">→</span> taste profile sharpens.</p></div>
+          <div class="row"><b>User action</b><p>Finishes, saves or skips picks; next week's Spotlight adapts <span class="arrow">→</span> taste profile sharpens.</p></div>
           <div class="row"><b>Internal state</b><p>Loyal <span class="arrow">→</span> StreamLine becomes their trusted curator again.</p></div>
           <div class="row"><b>Pain point addressed</b><p>Removes the reason to churn to a competitor's hand-picked email.</p></div>
           <div class="ev"><span>UXR-04</span></div>
@@ -150,8 +152,12 @@
     </ul>
   </section>
 
+  <aside class="dep win">
+    <b>Win-back entry point:</b> lapsed subscribers like Tom never open the app, so they get a weekly Spotlight email with two explained picks. One tap resubscribes them and drops them into stage 2.
+  </aside>
+
   <aside class="dep">
-    <b>Launch dependency:</b> stage 3 only works once watchlist sync (BUG-1058, Critical) and cross-device resume (BUG-1061, High) are fixed. Otherwise Spotlight leads users straight back to "lost it on the TV."
+    <b>Phase 0 prerequisite:</b> stage 3 only works once watchlist sync (BUG-1058, Critical) and cross-device resume (BUG-1061, High) are fixed. Otherwise Spotlight leads users straight back to "lost it on the TV."
   </aside>
 
   <footer>Evidence codes reference the StreamLine sample research set (UXR = interview, BUG = bug report).</footer>

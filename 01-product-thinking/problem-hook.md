@@ -32,7 +32,7 @@ _One urgent sentence fusing the business risk and the user pain, your pitch for 
 
 _Who it's for, the new value, and why it's urgent to launch now._
 
-> For **discerning viewers who value quality over volume**, we will **replace the 15,000-title scroll with Spotlight: a small, trusted, curated set of standout picks matched to their taste and explained ("why this, why now")** because **quality-seeking subscribers like Tom are already leaving for curation-led competitors, and every month we wait the "warehouse" perception gets harder to reverse.**
+> For **discerning viewers who value quality over volume** (and the overwhelmed evening viewers who share the same pain), we will **replace the 15,000-title scroll with Spotlight: three standout picks a night from an editor-curated pool, matched to each viewer's taste and explained ("why this, why now"), in the app for subscribers and by weekly email for lapsed ones**, because **competitors are already winning with hand-picked curation, quality-seeking subscribers like Tom are leaving for it, and every month we wait the "warehouse" perception gets harder to reverse.**
 
 ## 6. Cold-read self-review
 
@@ -43,6 +43,18 @@ _Read your hook back as a skeptical stakeholder. If you don't feel the urgency, 
 | Is the business risk high-stakes enough to justify a new initiative? | High-stakes: a plateau in a subscription business leads to churn and pricing pressure. Current evidence is one churned subscriber (Tom); baseline engagement and churn metrics are needed in Module 3 to prove scale. |
 | Is the moment of misery systemic, or just an edge case? | Systemic: it hits the core action (choosing what to watch) every session, and a bigger catalog makes it worse. Confirmed across the sample research (UXR-01, UXR-03, UXR-04, UXR-10, UXR-12). |
 | Does the value proposition actually remove the obstacle? | Yes, if Spotlight replaces the scroll with fewer, explained picks. If it's just another "Top 10" carousel, it's a generic feature. Depends on fixing watchlist sync (BUG-1058) and cross-device resume (BUG-1061) first, or saved picks get lost. |
+
+### Known risks and how the strategy answers them
+
+| Risk a skeptic will raise | Our answer |
+|---|---|
+| "Why not just fix the bugs?" | Bugs lose viewers *after* they choose; curation loses them *before* they choose (Priya, Aisha and Marcus never press play). Sync and resume fixes (BUG-1058, BUG-1061) become **Phase 0** of Spotlight, not a competing priority. |
+| Human curation can't be personalized at scale | **Hybrid model:** editors choose and annotate a pool of 100–200 standout titles a month; the algorithm only matches that pool to each viewer. Trust comes from the editors, personalization from the matching. |
+| The catalog may not have enough gems | Before launch, an editor audits the catalog for 50+ Spotlight-worthy titles, including restored older titles. If the audit fails, the problem is content, not discovery. |
+| Lapsed viewers never open the app | Two goals: **retain** at-risk subscribers in the app, and **win back** lapsed ones with a weekly Spotlight email (the channel that already won Tom). |
+| The discerning segment may be small | The Curator-Seeker is the *design* persona; the same "fewer, explained picks" also serves the larger Overwhelmed Evening Viewer segment (Priya, Aisha, Beth, focus group). |
+| "Every streamer has a Top 10 row" | Spotlight replaces the scroll instead of adding a row, explains every pick, and draws on a 15,000-title catalog a two-film newsletter can't match. |
+| Viewers won't rate picks | Learn from passive signals (finished, abandoned, saved, skipped); ratings are optional. |
 
 ## 7. Finalized hypothesis _(complete in Module 3)_
 

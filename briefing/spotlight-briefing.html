@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StreamLine Spotlight Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  /* Print-first briefing: Letter pages, one topic per page, single light theme by design. */
+  :root {
+    --paper: #ffffff;
+    --ink: #161a2e;
+    --muted: #5b6078;
+    --line: #dcdfeb;
+    --tint: #f3f4f9;
+    --accent: #3b3fc4;
+    --accent-soft: #e9eafb;
+    --spot: #b67a0c;
+    --spot-soft: #fbf1dc;
+    --warn: #b4442c;
+    --warn-soft: #fbe9e4;
+    --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+    color-scheme: light;
+  }
+  @page { size: letter; margin: 0.55in 0.6in; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 10pt; line-height: 1.45; }
+  .page { max-width: 7.3in; margin: 0 auto; padding: 0; display: grid; gap: 12px; align-content: start; break-after: page; }
+  .page:last-child { break-after: auto; }
+  @media screen { body { background: #e7e9f1; } .page { background: var(--paper); padding: 0.55in 0.6in; margin: 24px auto; max-width: 8.5in; box-shadow: 0 1px 4px rgba(22,26,46,.12); } }
+
+  .eyebrow { font-family: var(--mono); font-size: 8pt; letter-spacing: .1em; text-transform: uppercase; color: var(--spot); }
+  h1 { font-family: var(--display); font-weight: 700; font-size: 30pt; line-height: 1.02; margin: 4px 0 0; text-wrap: balance; }
+  h2 { font-family: var(--display); font-weight: 700; font-size: 18pt; line-height: 1.1; margin: 0; text-wrap: balance; }
+  h3 { font-family: var(--display); font-weight: 600; font-size: 12pt; margin: 0 0 4px; }
+  p { margin: 0; }
+  .lede { font-size: 12pt; color: var(--ink); max-width: 6.6in; }
+  .muted { color: var(--muted); }
+  .head { display: grid; gap: 4px; border-bottom: 1.5px solid var(--ink); padding-bottom: 8px; }
+  .pnum { font-family: var(--mono); font-size: 8pt; color: var(--muted); }
+
+  .quote { border-left: 3px solid var(--spot); background: var(--spot-soft); padding: 10px 14px; font-size: 11.5pt; }
+  .quote .src { display: block; margin-top: 4px; font-family: var(--mono); font-size: 8pt; color: var(--muted); }
+  .callout { border-left: 3px solid var(--warn); background: var(--warn-soft); padding: 9px 13px; }
+  .callout.info { border-left-color: var(--accent); background: var(--accent-soft); }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .box { border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; display: grid; gap: 6px; align-content: start; }
+  .box dl { margin: 0; display: grid; gap: 5px; }
+  .box dt { font-family: var(--mono); font-size: 7.5pt; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .box dd { margin: 0; }
+  .label { font-family: var(--mono); font-size: 7.5pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .stat { font-family: var(--display); font-size: 20pt; font-weight: 700; line-height: 1; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+  th { text-align: left; font-family: var(--mono); font-weight: 500; font-size: 7.5pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: 1.5px solid var(--ink); padding: 5px 8px 5px 0; }
+  td { border-bottom: 1px solid var(--line); padding: 6px 8px 6px 0; vertical-align: top; }
+  td:first-child { font-weight: 600; }
+  .sev { font-family: var(--mono); font-size: 7.5pt; padding: 1px 6px; border-radius: 3px; white-space: nowrap; }
+  .sev.c { background: var(--warn); color: #fff; }
+  .sev.h { background: var(--warn-soft); color: var(--warn); }
+  .sev.m { background: var(--tint); color: var(--muted); }
+  .ok { color: #2d7a4a; font-weight: 600; }
+  .wip { color: var(--spot); font-weight: 600; }
+
+  figure { margin: 0; border: 1px solid var(--line); border-radius: 6px; padding: 12px; display: grid; gap: 8px; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--muted); }
+  figcaption b { color: var(--ink); font-family: var(--display); font-weight: 600; font-size: 10pt; }
+  svg { width: 100%; height: auto; display: block; }
+  svg text { font-family: "Inter", system-ui, sans-serif; }
+
+  ol.stages { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  ol.stages li { border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; display: grid; gap: 4px; break-inside: avoid; }
+  ol.stages .n { font-family: var(--mono); color: var(--spot); font-size: 8pt; }
+  ol.stages p { font-size: 9.5pt; }
+  ol.stages b { font-family: var(--mono); font-weight: 500; font-size: 7.5pt; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+  .arrow { color: var(--spot); font-weight: 600; }
+  ul.tight { margin: 0; padding-left: 18px; display: grid; gap: 5px; }
+  .check { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+  .check li { display: grid; grid-template-columns: 16px 1fr; gap: 8px; }
+  .check li::before { content: ""; width: 11px; height: 11px; border: 1.5px solid var(--ink); border-radius: 2px; margin-top: 3px; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 · COVER + SUMMARY -->
+<section class="page">
+  <div class="head">
+    <div class="eyebrow">Product Management Final Project · Briefing · Modules 1–2</div>
+    <h1>StreamLine Spotlight</h1>
+    <p class="muted">From a 15,000-title warehouse to a few picks viewers trust</p>
+  </div>
+
+  <p class="lede">StreamLine has 15,000 titles and flat engagement. Viewers see it as a warehouse of mid-tier content. <b>Spotlight</b> replaces the endless scroll with three explained picks a night, chosen by editors and matched to each viewer's taste, to win back the viewers who value quality over volume.</p>
+
+  <div class="quote">We must stop StreamLine's slide into a commoditized, mid-tier content warehouse by fixing the endless, low-trust browsing that leaves viewers scrolling for 20 minutes, falling back on comfort rewatches, or leaving for competitors that hand-pick for them.
+    <span class="src">PROBLEM HOOK · 01-product-thinking/problem-hook.md</span></div>
+
+  <div class="grid3">
+    <div class="box"><span class="label">Research base</span><span class="stat">12 + 10</span><p>interviews and bug reports (sample data set)</p></div>
+    <div class="box"><span class="label">Top bug</span><span class="stat">340+</span><p>support tickets this quarter for watchlist sync (BUG-1058, Critical)</p></div>
+    <div class="box"><span class="label">Churn evidence</span><span class="stat">1</span><p>lapsed subscriber who left for a competitor's hand-picked films (Tom)</p></div>
+  </div>
+
+  <div>
+    <h3>The argument in five lines</h3>
+    <ol class="tight" style="margin:0;padding-left:18px;display:grid;gap:4px">
+      <li><b>Crisis:</b> doing nothing locks in the "warehouse" label while quality-seekers move to curation-led rivals.</li>
+      <li><b>Misery:</b> viewers scroll 20 minutes and give up, rewatch comfort shows, trust friends over the algorithm, or cancel.</li>
+      <li><b>Bet:</b> a hybrid curation model. Editors choose a pool of standout titles; the algorithm only matches that pool to each viewer.</li>
+      <li><b>Reach:</b> in the app to retain subscribers, and by weekly email to win back lapsed ones.</li>
+      <li><b>Prerequisite:</b> fix watchlist sync and cross-device resume first (Phase 0), or every good pick gets lost between phone and TV.</li>
+    </ol>
+  </div>
+
+  <div>
+    <h3>Deliverable status</h3>
+    <table>
+      <thead><tr><th>Deliverable</th><th>File</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Strategic Discovery Map</td><td>01-product-thinking/strategic-map.md</td><td class="ok">Done</td></tr>
+        <tr><td>Problem Hook &amp; Value Prop</td><td>01-product-thinking/problem-hook.md</td><td class="wip">Hypothesis due M3</td></tr>
+        <tr><td>AI Synthesis</td><td>02-discovery/ai-synthesis.md</td><td class="ok">Done</td></tr>
+        <tr><td>Competitive Analysis &amp; Journey Map</td><td>02-discovery/competitive-and-journey.md, journey-map.html</td><td class="ok">Done</td></tr>
+        <tr><td>Modules 3–6</td><td>03-analytics … 06-launch</td><td class="muted">Not started</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PAGE 2 · THE PROBLEM -->
+<section class="page">
+  <div class="head"><span class="pnum">02 / The problem</span><h2>Viewers are lost at two different moments</h2></div>
+
+  <div class="grid2">
+    <div class="box"><h3>Strategic crisis</h3><p>If we do nothing for 12 months, StreamLine is locked into the "warehouse of mid-tier content" label. Engagement slides from a plateau into decline as quality-focused viewers move to curation-led rivals, leaving us competing on catalog size and price, a race we lose to bigger libraries.</p></div>
+    <div class="box"><h3>Moment of misery</h3><p>After 20 minutes of look-alike tiles, viewers close the app without watching (Priya went back to a DVD), rewatch the same few comfort shows (Aisha), trust friends over the algorithm (Sam), or cancel for a competitor that emails them hand-picked films (Tom).</p></div>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 720 300" role="img" aria-labelledby="dA">
+      <title id="dA">Viewing funnel showing curation failures before choosing and reliability failures after</title>
+      <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#5b6078"/></marker></defs>
+      <!-- phase brackets -->
+      <rect x="20" y="16" width="320" height="26" rx="4" fill="#fbf1dc"/>
+      <text x="180" y="34" text-anchor="middle" font-size="12" font-weight="600" fill="#161a2e">Spotlight fixes this half</text>
+      <rect x="380" y="16" width="320" height="26" rx="4" fill="#e9eafb"/>
+      <text x="540" y="34" text-anchor="middle" font-size="12" font-weight="600" fill="#161a2e">Phase 0 bug fixes fix this half</text>
+      <!-- steps -->
+      <g font-size="13" font-weight="600" fill="#161a2e" text-anchor="middle">
+        <rect x="20" y="64" width="140" height="56" rx="6" fill="#fff" stroke="#161a2e" stroke-width="1.5"/><text x="90" y="97">Open app</text>
+        <rect x="200" y="64" width="140" height="56" rx="6" fill="#fff" stroke="#161a2e" stroke-width="1.5"/><text x="270" y="97">Choose a title</text>
+        <rect x="380" y="64" width="140" height="56" rx="6" fill="#fff" stroke="#161a2e" stroke-width="1.5"/><text x="450" y="97">Save or start</text>
+        <rect x="560" y="64" width="140" height="56" rx="6" fill="#fff" stroke="#161a2e" stroke-width="1.5"/><text x="630" y="97">Finish it</text>
+      </g>
+      <g stroke="#5b6078" stroke-width="1.5" marker-end="url(#ah)">
+        <line x1="162" y1="92" x2="197" y2="92"/><line x1="342" y1="92" x2="377" y2="92"/><line x1="522" y1="92" x2="557" y2="92"/>
+      </g>
+      <!-- leak arrows -->
+      <g stroke="#b4442c" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ahr)">
+        <line x1="180" y1="122" x2="180" y2="160"/><line x1="540" y1="122" x2="540" y2="160"/>
+      </g>
+      <defs><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#b4442c"/></marker></defs>
+      <!-- failure boxes -->
+      <rect x="20" y="166" width="320" height="120" rx="6" fill="#fbe9e4"/>
+      <text x="34" y="188" font-size="12" font-weight="700" fill="#b4442c">CURATION FAILURE · before they choose</text>
+      <g font-size="11.5" fill="#161a2e">
+        <text x="34" y="210">• 20-minute scroll, nothing chosen (UXR-01, UXR-12)</text>
+        <text x="34" y="228">• "Because you watched" sequel loop (UXR-02, BUG-1091)</text>
+        <text x="34" y="246">• Search only matches exact titles (UXR-07, BUG-1080)</text>
+        <text x="34" y="268" font-weight="600">→ give up, rewatch, or leave for a competitor</text>
+      </g>
+      <rect x="380" y="166" width="320" height="120" rx="6" fill="#fbe9e4"/>
+      <text x="394" y="188" font-size="12" font-weight="700" fill="#b4442c">RELIABILITY FAILURE · after they choose</text>
+      <g font-size="11.5" fill="#161a2e">
+        <text x="394" y="210">• Watchlist doesn't sync (BUG-1058, 340+ tickets)</text>
+        <text x="394" y="228">• Resume restarts at 0:00 (BUG-1061, UXR-11)</text>
+        <text x="394" y="246">• TV playback crashes (BUG-1042, UXR-08)</text>
+        <text x="394" y="268" font-weight="600">→ title lost, never finished, switch app</text>
+      </g>
+    </svg>
+    <figcaption><b>Figure 1 · Where viewers drop out.</b> Bug fixes alone don't help viewers who never choose anything. Curation alone doesn't help if the chosen title disappears on the TV. Spotlight needs both.</figcaption>
+  </figure>
+
+  <div class="callout info"><b>Why this framing matters:</b> it answers the first objection a stakeholder will raise ("why not just fix the bugs?"). The two problems lose viewers at different moments, so they need different fixes.</div>
+</section>
+
+<!-- PAGE 3 · EVIDENCE -->
+<section class="page">
+  <div class="head"><span class="pnum">03 / Evidence</span><h2>Who we're solving for</h2></div>
+
+  <div class="grid2">
+    <div class="box">
+      <span class="label">Design persona</span>
+      <h3>The Discerning Curator-Seeker</h3>
+      <dl>
+        <dt>Role</dt><dd>A film-literate viewer in their 40s–50s who judges the platform by the quality of its picks.</dd>
+        <dt>Goal</dt><dd>Find a hidden gem that fits their taste, from a source they trust, without wading through sequels.</dd>
+        <dt>Friction</dt><dd>Gets three sequels after one action film; descriptive search returns Fast &amp; Furious; cancels for a competitor's curated email.</dd>
+        <dt>Drawn from</dt><dd>Marcus (UXR-02), Tom (UXR-04), Sam (UXR-10), Lucia (UXR-07)</dd>
+      </dl>
+    </div>
+    <div class="box">
+      <span class="label">Larger segment</span>
+      <h3>The Overwhelmed Evening Viewer</h3>
+      <dl>
+        <dt>Role</dt><dd>A loyal subscriber who opens the app most evenings to unwind, not to research.</dd>
+        <dt>Goal</dt><dd>Be told "here's something good for tonight" that fits their mood, in minutes.</dd>
+        <dt>Friction</dt><dd>Scrolls 20 minutes and gives up, avoids anything new, or feels anxious about the number of choices.</dd>
+        <dt>Drawn from</dt><dd>Priya (UXR-01), Aisha (UXR-03), Beth (UXR-09), focus group (UXR-12)</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="quote">"The 'Because you watched' row is a joke, it recommended three more action sequels because I watched one. I'm not a genre, I'm a person. I miss when a human curator would surface a hidden gem."
+    <span class="src">MARCUS · UXR-02 · 41, FILM BUFF</span></div>
+
+  <div class="grid2">
+    <div class="box">
+      <h3>Today's workaround</h3>
+      <ol style="margin:0;padding-left:18px;display:grid;gap:3px;font-size:9.5pt">
+        <li>Sees the sequel loop on the home screen and gives up on it.</li>
+        <li>Asks a friend, or reads a competitor's curated email.</li>
+        <li>Searches the exact title, since descriptive search fails.</li>
+        <li>Saves it on their phone; it's missing on the TV.</li>
+        <li>Eventually cancels for the competitor that curates for them.</li>
+      </ol>
+    </div>
+    <div class="box">
+      <h3>Key bug reports</h3>
+      <table>
+        <tbody>
+          <tr><td>BUG-1058</td><td>Watchlist doesn't sync</td><td><span class="sev c">Critical</span></td></tr>
+          <tr><td>BUG-1061</td><td>Resume lost across devices</td><td><span class="sev h">High</span></td></tr>
+          <tr><td>BUG-1042</td><td>TV playback crashes</td><td><span class="sev h">High</span></td></tr>
+          <tr><td>BUG-1091</td><td>Sequel-loop recommendations</td><td><span class="sev h">High</span></td></tr>
+          <tr><td>BUG-1080</td><td>Exact-title-only search</td><td><span class="sev m">Medium</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="callout"><b>Evidence limits:</b> this is a sample of 12 interviews and 10 bugs, so the themes are directional. Churn to curation-led competitors rests on one participant (Tom). Module 3 needs baseline engagement and churn metrics to show scale.</div>
+</section>
+
+<!-- PAGE 4 · STRATEGY -->
+<section class="page">
+  <div class="head"><span class="pnum">04 / Strategy</span><h2>Editors choose, the algorithm matches</h2></div>
+
+  <div class="quote">For <b>discerning viewers who value quality over volume</b> (and the overwhelmed evening viewers who share the same pain), we will <b>replace the 15,000-title scroll with Spotlight: three standout picks a night from an editor-curated pool, matched to each viewer's taste and explained ("why this, why now"), in the app for subscribers and by weekly email for lapsed ones</b>, because <b>competitors are already winning with hand-picked curation, quality-seeking subscribers like Tom are leaving for it, and every month we wait the "warehouse" perception gets harder to reverse.</b>
+    <span class="src">VALUE PROPOSITION · problem-hook.md §5</span></div>
+
+  <figure>
+    <svg viewBox="0 0 720 250" role="img" aria-labelledby="dB">
+      <title id="dB">Hybrid curation model from catalog to editors to pool to matching to picks, with two delivery channels</title>
+      <defs>
+        <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#5b6078"/></marker>
+        <marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#b67a0c"/></marker>
+      </defs>
+      <g text-anchor="middle" fill="#161a2e">
+        <rect x="8" y="30" width="118" height="70" rx="6" fill="#f3f4f9" stroke="#dcdfeb"/>
+        <text x="67" y="60" font-size="13" font-weight="700">Catalog</text><text x="67" y="80" font-size="11" fill="#5b6078">15,000 titles</text>
+
+        <rect x="158" y="30" width="118" height="70" rx="6" fill="#fbf1dc" stroke="#b67a0c"/>
+        <text x="217" y="56" font-size="13" font-weight="700">Editors</text><text x="217" y="74" font-size="11" fill="#5b6078">choose + write</text><text x="217" y="89" font-size="11" fill="#5b6078">"why this" notes</text>
+
+        <rect x="308" y="30" width="118" height="70" rx="6" fill="#fbf1dc" stroke="#b67a0c"/>
+        <text x="367" y="56" font-size="13" font-weight="700">Spotlight pool</text><text x="367" y="74" font-size="11" fill="#5b6078">100–200 titles</text><text x="367" y="89" font-size="11" fill="#5b6078">refreshed monthly</text>
+
+        <rect x="458" y="30" width="118" height="70" rx="6" fill="#e9eafb" stroke="#3b3fc4"/>
+        <text x="517" y="56" font-size="13" font-weight="700">Matching</text><text x="517" y="74" font-size="11" fill="#5b6078">algorithm fits</text><text x="517" y="89" font-size="11" fill="#5b6078">pool to taste</text>
+
+        <rect x="608" y="30" width="104" height="70" rx="6" fill="#fff" stroke="#161a2e" stroke-width="1.5"/>
+        <text x="660" y="60" font-size="13" font-weight="700">3 picks</text><text x="660" y="80" font-size="11" fill="#5b6078">per viewer</text>
+      </g>
+      <g stroke="#5b6078" stroke-width="1.5" marker-end="url(#ah2)">
+        <line x1="128" y1="65" x2="155" y2="65"/><line x1="278" y1="65" x2="305" y2="65"/><line x1="428" y1="65" x2="455" y2="65"/><line x1="578" y1="65" x2="605" y2="65"/>
+      </g>
+      <!-- feedback loop -->
+      <path d="M660 102 C660 138, 517 138, 517 104" fill="none" stroke="#b67a0c" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ah3)"/>
+      <text x="588" y="150" text-anchor="middle" font-size="10.5" fill="#b67a0c">finished · saved · skipped</text>
+      <!-- brackets -->
+      <text x="292" y="18" text-anchor="middle" font-size="11" font-weight="700" fill="#b67a0c">TRUST comes from people</text>
+      <text x="585" y="18" text-anchor="middle" font-size="11" font-weight="700" fill="#3b3fc4">PERSONALIZATION comes from matching</text>
+      <!-- channels -->
+      <line x1="660" y1="160" x2="660" y2="176" stroke="#5b6078" stroke-width="1.5"/>
+      <line x1="200" y1="176" x2="660" y2="176" stroke="#5b6078" stroke-width="1.5"/>
+      <line x1="200" y1="176" x2="200" y2="192" stroke="#5b6078" stroke-width="1.5" marker-end="url(#ah2)"/>
+      <line x1="520" y1="176" x2="520" y2="192" stroke="#5b6078" stroke-width="1.5" marker-end="url(#ah2)"/>
+      <rect x="70" y="196" width="260" height="48" rx="6" fill="#fff" stroke="#161a2e"/>
+      <text x="200" y="216" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161a2e">In the app · RETAIN</text>
+      <text x="200" y="234" text-anchor="middle" font-size="11" fill="#5b6078">current and at-risk subscribers</text>
+      <rect x="390" y="196" width="260" height="48" rx="6" fill="#fff" stroke="#161a2e"/>
+      <text x="520" y="216" text-anchor="middle" font-size="12.5" font-weight="700" fill="#161a2e">Weekly email · WIN BACK</text>
+      <text x="520" y="234" text-anchor="middle" font-size="11" fill="#5b6078">lapsed subscribers like Tom</text>
+    </svg>
+    <figcaption><b>Figure 2 · The hybrid curation model.</b> Humans make the pool trustworthy; the algorithm only decides which trusted titles fit each viewer. Picks reach subscribers in the app and lapsed viewers by email.</figcaption>
+  </figure>
+
+  <div class="grid3">
+    <div class="box"><h3>Fewer, not more</h3><p>Spotlight replaces the scroll instead of adding another "Top 10" row.</p></div>
+    <div class="box"><h3>Explained</h3><p>Every pick says why it fits this viewer, tonight. That's the trust layer rivals lack.</p></div>
+    <div class="box"><h3>Deep catalog</h3><p>Editors surface gems from 15,000 titles, which a two-film newsletter can't match.</p></div>
+  </div>
+</section>
+
+<!-- PAGE 5 · JOURNEY -->
+<section class="page">
+  <div class="head"><span class="pnum">05 / Future state</span><h2>The Spotlight journey</h2></div>
+
+  <figure>
+    <svg viewBox="0 0 720 270" role="img" aria-labelledby="dC">
+      <title id="dC">Four-stage Spotlight journey with a win-back entry and a Phase 0 dependency</title>
+      <defs>
+        <marker id="ah4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#b67a0c"/></marker>
+        <linearGradient id="tl" x1="0" x2="1"><stop offset="0" stop-color="#dcdfeb"/><stop offset="1" stop-color="#b67a0c"/></linearGradient>
+      </defs>
+      <!-- win-back entry -->
+      <rect x="196" y="6" width="232" height="36" rx="6" fill="#fbf1dc" stroke="#b67a0c"/>
+      <text x="312" y="22" text-anchor="middle" font-size="11.5" font-weight="700" fill="#161a2e">Win-back email (lapsed viewers)</text>
+      <text x="312" y="36" text-anchor="middle" font-size="10" fill="#5b6078">two explained picks → one tap to resubscribe</text>
+      <path d="M312 44 L270 88" fill="none" stroke="#b67a0c" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ah4)"/>
+      <!-- line -->
+      <rect x="90" y="104" width="540" height="4" rx="2" fill="url(#tl)"/>
+      <g text-anchor="middle">
+        <circle cx="90" cy="106" r="20" fill="#fff" stroke="#b67a0c" stroke-width="2.5"/><text x="90" y="111" font-size="14" font-weight="700" fill="#b67a0c">1</text>
+        <circle cx="270" cy="106" r="20" fill="#fff" stroke="#b67a0c" stroke-width="2.5"/><text x="270" y="111" font-size="14" font-weight="700" fill="#b67a0c">2</text>
+        <circle cx="450" cy="106" r="20" fill="#fff" stroke="#b67a0c" stroke-width="2.5"/><text x="450" y="111" font-size="14" font-weight="700" fill="#b67a0c">3</text>
+        <circle cx="630" cy="106" r="20" fill="#b67a0c"/><text x="630" y="111" font-size="14" font-weight="700" fill="#fff">4</text>
+
+        <g font-size="14" font-weight="700" fill="#161a2e">
+          <text x="90" y="150">Discover</text><text x="270" y="150">Trust</text><text x="450" y="150">Commit</text><text x="630" y="150">Return</text>
+        </g>
+        <g font-size="11" fill="#5b6078">
+          <text x="90" y="167">"Spotlight Tonight"</text><text x="270" y="167">"Why this, why now"</text><text x="450" y="167">"Watch or save"</text><text x="630" y="167">"Weekly Spotlight"</text>
+        </g>
+        <g font-size="10.5" font-weight="600">
+          <rect x="55" y="176" width="70" height="20" rx="10" fill="#fbf1dc"/><text x="90" y="190" fill="#161a2e">Relieved</text>
+          <rect x="235" y="176" width="70" height="20" rx="10" fill="#fbf1dc"/><text x="270" y="190" fill="#161a2e">Intrigued</text>
+          <rect x="412" y="176" width="76" height="20" rx="10" fill="#fbf1dc"/><text x="450" y="190" fill="#161a2e">Confident</text>
+          <rect x="595" y="176" width="70" height="20" rx="10" fill="#fbf1dc"/><text x="630" y="190" fill="#161a2e">Loyal</text>
+        </g>
+        <g font-size="10" fill="#5b6078">
+          <text x="90" y="216">Replaces the</text><text x="90" y="229">sequel loop</text>
+          <text x="270" y="216">Replaces asking</text><text x="270" y="229">friends / competitors</text>
+          <text x="450" y="216">Replaces exact-title</text><text x="450" y="229">search + lost lists</text>
+          <text x="630" y="216">Replaces the reason</text><text x="630" y="229">to churn</text>
+        </g>
+      </g>
+      <!-- phase 0 bracket -->
+      <rect x="370" y="240" width="160" height="24" rx="4" fill="#fbe9e4"/>
+      <text x="450" y="256" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b4442c">Needs Phase 0: BUG-1058 + 1061</text>
+    </svg>
+    <figcaption><b>Figure 3 · Future-state journey for the Discerning Curator-Seeker.</b> Subscribers enter at stage 1 in the app; lapsed viewers enter at stage 2 through the win-back email.</figcaption>
+  </figure>
+
+  <ol class="stages">
+    <li><span class="n">STAGE 1 · DISCOVER</span><p><b>Action</b> Opens app, sees 3 editor-picked titles matched to their taste <span class="arrow">→</span> decides in seconds.</p><p><b>State</b> Relieved <span class="arrow">→</span> trusts someone already filtered the warehouse.</p><p><b>Fixes</b> The "Because you watched" sequel loop.</p></li>
+    <li><span class="n">STAGE 2 · TRUST</span><p><b>Action</b> Reads the editor's note on a hidden gem <span class="arrow">→</span> understands why it fits them.</p><p><b>State</b> Intrigued <span class="arrow">→</span> feels seen as a person, not a genre.</p><p><b>Fixes</b> No need to ask friends or a competitor.</p></li>
+    <li><span class="n">STAGE 3 · COMMIT</span><p><b>Action</b> Taps Watch or saves to My List <span class="arrow">→</span> title follows them to the TV.</p><p><b>State</b> Confident <span class="arrow">→</span> the effort of choosing isn't wasted.</p><p><b>Fixes</b> Exact-title search and watchlists that vanish between devices.</p></li>
+    <li><span class="n">STAGE 4 · RETURN</span><p><b>Action</b> Finishes, saves or skips picks; next week's Spotlight adapts <span class="arrow">→</span> taste sharpens.</p><p><b>State</b> Loyal <span class="arrow">→</span> StreamLine is their trusted curator again.</p><p><b>Fixes</b> The reason to churn to a competitor's curated email.</p></li>
+  </ol>
+
+  <p class="muted" style="font-size:9pt">Interactive version: 02-discovery/journey-map.html · claude.ai/artifact/SLDY1AmoRdC8F9bKyiLXNy</p>
+</section>
+
+<!-- PAGE 6 · ROLLOUT + RISKS -->
+<section class="page">
+  <div class="head"><span class="pnum">06 / Rollout and risks</span><h2>Fix the foundation, then curate</h2></div>
+
+  <figure>
+    <svg viewBox="0 0 720 150" role="img" aria-labelledby="dD">
+      <title id="dD">Three proposed phases with a catalog audit gate before Phase 1</title>
+      <g fill="#161a2e">
+        <path d="M8 20 H212 L236 70 L212 120 H8 Z" fill="#e9eafb" stroke="#3b3fc4"/>
+        <text x="20" y="44" font-size="10.5" font-weight="700" fill="#3b3fc4">PHASE 0</text>
+        <text x="20" y="64" font-size="13" font-weight="700">Fix the foundation</text>
+        <text x="20" y="83" font-size="10.5" fill="#5b6078">Watchlist sync, resume,</text>
+        <text x="20" y="98" font-size="10.5" fill="#5b6078">TV playback (1058/1061/1042)</text>
+
+        <path d="M246 20 H452 L476 70 L452 120 H246 L270 70 Z" fill="#fbf1dc" stroke="#b67a0c"/>
+        <text x="284" y="44" font-size="10.5" font-weight="700" fill="#b67a0c">PHASE 1</text>
+        <text x="284" y="64" font-size="13" font-weight="700">Spotlight in the app</text>
+        <text x="284" y="83" font-size="10.5" fill="#5b6078">Goal: retain subscribers</text>
+        <text x="284" y="98" font-size="10.5" fill="#5b6078">3 explained picks a night</text>
+
+        <path d="M486 20 H712 V120 H486 L510 70 Z" fill="#fff" stroke="#161a2e"/>
+        <text x="524" y="44" font-size="10.5" font-weight="700" fill="#161a2e">PHASE 2</text>
+        <text x="524" y="64" font-size="13" font-weight="700">Spotlight email</text>
+        <text x="524" y="83" font-size="10.5" fill="#5b6078">Goal: win back lapsed</text>
+        <text x="524" y="98" font-size="10.5" fill="#5b6078">2 picks a week, 1-tap return</text>
+      </g>
+      <rect x="182" y="128" width="168" height="20" rx="10" fill="#fbe9e4"/>
+      <text x="266" y="142" text-anchor="middle" font-size="10" font-weight="700" fill="#b4442c">GATE · catalog audit: 50+ gems</text>
+    </svg>
+    <figcaption><b>Figure 4 · Proposed rollout.</b> A draft for the Module 4 roadmap. Phase 1 starts only if an editor audit finds enough Spotlight-worthy titles.</figcaption>
+  </figure>
+
+  <table>
+    <thead><tr><th style="width:34%">Risk a skeptic will raise</th><th>Our answer</th></tr></thead>
+    <tbody>
+      <tr><td>"Why not just fix the bugs?"</td><td>Bugs lose viewers after they choose; curation loses them before. The fixes become Phase 0 of Spotlight.</td></tr>
+      <tr><td>Human curation can't personalize at scale</td><td>Hybrid: editors build a 100–200-title pool; the algorithm only matches it to each viewer.</td></tr>
+      <tr><td>The catalog may lack gems</td><td>Pre-launch editor audit for 50+ titles, including restored older ones. If it fails, the problem is content, not discovery.</td></tr>
+      <tr><td>Lapsed viewers never open the app</td><td>Retain in the app; win back by weekly email, the channel that already won Tom.</td></tr>
+      <tr><td>The discerning segment may be small</td><td>It's the design persona; the larger Evening Viewer segment benefits from the same fewer, explained picks.</td></tr>
+      <tr><td>"Every streamer has a Top 10 row"</td><td>Spotlight replaces the scroll, explains every pick, and draws on a deeper catalog than a newsletter.</td></tr>
+      <tr><td>Viewers won't rate picks</td><td>Learn from passive signals (finished, abandoned, saved, skipped); ratings are optional.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- PAGE 7 · REVIEW NOTES -->
+<section class="page">
+  <div class="head"><span class="pnum">07 / For review</span><h2>Notes to check before Module 3</h2></div>
+
+  <div class="box">
+    <h3>Decide or validate</h3>
+    <ul class="check">
+      <li><span><b>Placeholder numbers are mine, not from the brief.</b> 3 picks a night, a 100–200-title pool, a 50-title audit gate and a 2-pick weekly email are reasonable starting points. Adjust them or call them assumptions.</span></li>
+      <li><span><b>The phased rollout is a proposal.</b> It belongs in the Module 4 roadmap; nothing in the course has asked for it yet.</span></li>
+      <li><span><b>No external "why now" trigger.</b> Urgency rests on competitors already curating and Tom's churn. If the scenario offers a date or figure (a competitor launch, a renewal, a churn rate), add it.</span></li>
+      <li><span><b>Thin churn evidence.</b> One churned participant. Present it as directional.</span></li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h3>Housekeeping</h3>
+    <ul class="check">
+      <li><span><b>Sync the course guides.</b> The problem hook (§3–6), journey answers and strategic map were revised in the repo. If your instructor expects the guides' own exports, copy the final answers back.</span></li>
+      <li><span><b>The journey map link is public to anyone with the link.</b> That's fine for #cohort-channel; it updates live when the file is republished.</span></li>
+      <li><span><b>Push the repo</b> after reviewing (git push origin main).</span></li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h3>Module 3 preview: hypothesis and metrics</h3>
+    <p>Draft to refine:</p>
+    <div class="quote" style="font-size:10.5pt">Based on interviews with Marcus, Tom and Priya and 340+ sync tickets, I believe that giving Discerning Curator-Seekers three explained, editor-picked titles a night will increase the share of sessions that end in a title watched, as measured by a [X%] change in <b>Spotlight play-through rate</b>. I will protect <b>overall weekly watch time</b> and make a go/no-go decision after <b>[6 weeks]</b>.</div>
+    <p class="muted" style="font-size:9pt">Candidate metrics: sessions ending with nothing watched, time-to-first-play, 30-day churn among quality-seekers, win-back rate from the email. Guardrails: total watch time, support tickets.</p>
+  </div>
+</section>
+
+</body>
+</html>
