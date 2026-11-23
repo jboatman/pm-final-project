@@ -44,3 +44,17 @@ Snapshot 1 (Engagement & Funnel Health) shows 29% of visitors start playing but 
 **Check we can run now:** split early-abandoned plays into sessions that hit a playback error or resume restart and sessions that didn't. If most early exits have no bug, poor match is already the likelier cause.
 
 **Why it matters:** if we launch Spotlight before the fixes, any completion lift (or lack of one) is mixed up with bug effects, and the A/B test can't tell us whether the curation works.
+
+### Snapshot 2: retention cohorts (Spotlight vs. Full Library)
+
+**Added:** 2026-11-23 · **Status:** Open
+
+**What the data shows**
+- Spotlight cohorts (Dec–Feb) retain **11–15 pts better at Month 1** (74–79% vs. 63–68%) and **13–18 pts better at Month 3** (52% vs. 34–39%).
+- Each new Spotlight cohort retains better than the last (74% → 77% → 79% at Month 1), while each new Full Library cohort retains worse (68% → 66% → 63%).
+- The **Month 0 → 1 drop is still the largest leak**: 21–26% with Spotlight, 32–37% without.
+
+**Notes for future discussions**
+1. **Correlation, not proof.** The cohorts started in different months, and holiday sign-ups (Dec, Jan) may behave differently from fall ones. Seasonality or other changes could explain part of the gap. **We still need an A/B test**, which supports the Module 3 and 5 plan.
+2. **This supports Stage 0 (setup).** The biggest leak is the first month, before Spotlight has learned anything about the viewer. New subscribers still hit the scroll before they trust anything, so the first-week experience (setup plus strong first picks) is where to focus.
+3. **Bugs may feed the Month 0 → 1 drop too.** Losing saved titles in the first weeks (BUG-1058) could push new subscribers out. This is the same bugs-first logic as the Snapshot 1 note: re-check this drop after Phase 0 ships.
