@@ -6,6 +6,9 @@
 
 ## Responses
 
+> **Module 3 update (2026-11-23):** segment data shows the Curator-Seeker below behaves like a Power User (22% of subscribers, low churn). The primary persona is now the **Overwhelmed Evening Viewer** ("Wanderers," 41% of subscribers, 22 pts lower churn with Spotlight; Priya UXR-01, Aisha UXR-03, focus group UXR-12). The answers below are kept as the Module 2 record. See `03-analytics/hypothesis-and-metrics.md`.
+
+
 - **Role, who are you solving for?:** The Discerning Curator-Seeker: a film-literate viewer in their 40s–50s who sees watching as a deliberate choice, not background noise, and judges the platform by the quality of its picks.
 - **Goal, what is this user ultimately trying to achieve?:** To find a hidden gem that fits their particular taste, recommended by a source they trust, without digging through a sea of sequels.
 - **Friction, the main barrier (moment of misery) stopping them:** "Because you watched" served Marcus three more action sequels after he watched one ("I'm not a genre, I'm a person"). Searching for "slow quiet French drama" returned a Fast & Furious film. With no trusted curation, Tom cancelled and now watches both films a competitor emails him each week.

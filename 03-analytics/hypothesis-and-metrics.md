@@ -58,3 +58,26 @@ Snapshot 1 (Engagement & Funnel Health) shows 29% of visitors start playing but 
 1. **Correlation, not proof.** The cohorts started in different months, and holiday sign-ups (Dec, Jan) may behave differently from fall ones. Seasonality or other changes could explain part of the gap. **We still need an A/B test**, which supports the Module 3 and 5 plan.
 2. **This supports Stage 0 (setup).** The biggest leak is the first month, before Spotlight has learned anything about the viewer. New subscribers still hit the scroll before they trust anything, so the first-week experience (setup plus strong first picks) is where to focus.
 3. **Bugs may feed the Month 0 → 1 drop too.** Losing saved titles in the first weeks (BUG-1058) could push new subscribers out. This is the same bugs-first logic as the Snapshot 1 note: re-check this drop after Phase 0 ships.
+
+### Snapshot 3: segments, and the persona pivot
+
+**Added:** 2026-11-23 · **Status:** Decided
+
+| Segment | % of base | Monthly LTV | Sessions/wk | Content mix | Churn with Spotlight |
+|---|---|---|---|---|---|
+| Power Users | 22% | $14.20 | 4.8× | 58% curated / 22% trending | N/A (low churn anyway) |
+| Casual Browsers | 37% | $11.40 | 2.3× | 31% curated / 44% trending | −14 pts |
+| **Wanderers** | **41%** | **$8.40** | **1.1×** | **18% curated / 61% trending** | **−22 pts** |
+
+**Decision: make the Overwhelmed Evening Viewer the primary persona.**
+- **The Curator-Seeker looks like a Power User.** They already find curated content, use the app most and rarely churn, so they're not the biggest opportunity (the pivot check).
+- **The pain shows up in Wanderers.** Scrolling, giving up and defaulting to whatever's trending matches the Overwhelmed Evening Viewer (Priya UXR-01, Aisha UXR-03, focus group UXR-12).
+- **They're the largest segment with the biggest response.** 41% of the base and a 22-pt churn drop with Spotlight.
+- **The strategy carries over.** "Easy tonight" becomes the default lens; the Curator-Seeker stays as design inspiration and the Hidden gems lens.
+- **Caveat:** "churn if Spotlight-exposed" compares exposed vs. non-exposed users, who may differ in other ways. The A/B test still has to confirm it.
+
+### Draft hypothesis (updated for the pivot)
+
+> Based on 7 of 12 research sessions showing viewers giving up or distrusting recommendations, and Snapshot 3 showing Wanderers (41% of subscribers) churn 22 pts less when exposed to Spotlight, we believe that replacing the scroll with three source-labeled Spotlight picks for **Overwhelmed Evening Viewers (Wanderers)** will result in viewers choosing faster and choosing better, as measured by a **15% increase in 7-day completion rate** of started titles. We will protect **weekly watch time per subscriber** and make a go/no-go decision after a **6-week A/B test**, run after the Phase 0 bug fixes ship.
+
+_15% and 6 weeks are placeholders. Verify the "7 of 12" count against the sample data._
