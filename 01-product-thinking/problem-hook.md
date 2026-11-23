@@ -61,10 +61,12 @@ _Read your hook back as a skeptical stakeholder. If you don't feel the urgency, 
 | "Every streamer has a Top 10 row" | Spotlight replaces the scroll instead of adding a row, explains every pick, and draws on a 15,000-title catalog a two-film newsletter can't match. |
 | Viewers won't rate picks | Learn from passive signals (finished, abandoned, saved, skipped); ratings are optional. |
 
-## 7. Finalized hypothesis _(complete in Module 3)_
+## 7. Finalized hypothesis _(from Module 3)_
 
-> Based on [qual + quant evidence], I believe that [solving X] for [persona] will result in [outcome], as measured by a [X%] change in [success metric]. I will protect [guardrail metric] and make a go/no-go decision after [decision window].
+> Based on Priya's 20-minute scroll that ends in nothing watched and data showing Wanderers (41% of subscribers) churn 22 pts less when exposed to Spotlight, I believe that replacing the scroll with three trusted, labeled picks a night for Overwhelmed Evening Viewers will result in them choosing faster and finishing what they start, as measured by a 15% increase in 7-day completion rate. I will protect Power User watch time and churn and will make a go/no-go decision after a 6-week A/B test.
+
+Details and metrics: `03-analytics/hypothesis-and-metrics.md`.
 
 ## Link to full artifact
 
-Completed directly in this repo; see sections 1–6 above.
+Completed directly in this repo; see sections 1–7 above.
