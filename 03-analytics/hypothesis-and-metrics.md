@@ -15,3 +15,32 @@
 | _North-star_ | | _____ | _____ |
 | _Leading indicator_ | | _____ | _____ |
 | _Guardrail_ | | _____ | _____ |
+
+---
+
+## Working notes (before the lab export)
+
+_Keep these when replacing this file with the guide's export._
+
+### Decision: fix bugs first, then re-read the depth drop
+
+**Added:** 2026-11-23 · **Status:** Open · **Revisit:** after Phase 0 ships
+
+Snapshot 1 (Engagement & Funnel Health) shows 29% of visitors start playing but only 11% reach a 30-minute session, so **about 62% of plays end early**. We can't yet tell why:
+
+| Possible cause | Evidence today | What it would mean |
+|---|---|---|
+| **Bugs** cut sessions short | Playback failures (BUG-1042), resume restarting at 0:00 (BUG-1061), watchlist not syncing (BUG-1058) | A fix problem, not a curation problem |
+| **Poor match:** viewers start titles that don't hold them | Comfort rewatches (Aisha, UXR-03), sequel loop (Marcus, UXR-02; BUG-1091) | Spotlight's "choose better" case, measured by completion |
+
+**Plan**
+1. **Ship the Phase 0 bug fixes first** (BUG-1042, BUG-1058, BUG-1061), as already planned.
+2. **Re-pull the start → 30-minute drop** a few weeks after the fixes ship and compare it with today's 62%.
+3. **Decide what the drop means:**
+   - **It recovers a lot:** bugs were the main cause. Spotlight's case rests on *choosing* (browse → play), and time to first play matters more.
+   - **It barely moves:** the poor match is real. 7-day completion stays the primary success metric.
+   - **In between:** both causes are real. Size the bug share before setting the completion target.
+
+**Check we can run now:** split early-abandoned plays into sessions that hit a playback error or resume restart and sessions that didn't. If most early exits have no bug, poor match is already the likelier cause.
+
+**Why it matters:** if we launch Spotlight before the fixes, any completion lift (or lack of one) is mixed up with bug effects, and the A/B test can't tell us whether the curation works.
